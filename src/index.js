@@ -1,8 +1,12 @@
-import {App} from './App.js';
-import {Render} from './Upkaran.js';
-// select root element
-const root = document.querySelector('#root')
+// index.js
 
-// console.log("Namaste world!")
+import { render } from './Upkaran.js';
+import { App } from './App.js';
 
-Render(root,App);
+// Get the root element
+const rootElement = document.getElementById('root');
+
+// Render the App component
+render(rootElement, App());
+
+ 
