@@ -1,64 +1,166 @@
-App.js
+// // app.js
+// import { createState } from "../src/state.js";
+// import { routes } from "../src/Route.js"; // Import routes
+// import { render } from "../src/Upkaran.js";
+// import {ListComponent} from "../src/Component/ListComponent.js";
 
-import { createState } from './Upkaran.js';
-import { renderCount } from './Component/RenderCount.js';
+// // Create reactive state
+// const initialState = {
+//     count: 0,
+// };
+// const state = createState(initialState);
 
-// Define a component that uses state
+// // Define components
+// const Increment = () => {
+//     state.setState({ count: state.getState().count + 1 });
+//     console.log(state.getState().count);
+// };
+
+// const Decrement = () => {
+//     state.setState({ count: state.getState().count - 1 });
+//     console.log(state.getState().count);
+// };
+
+// export function App() {
+//     return {
+//         type: "div",
+//         content: [
+//             {
+//                 type: 'button',
+//                 onclick:`navigateTo('/contact)`,
+//                 content : 'Contact'
+//             },
+//             {
+//                 type: "p",
+//                 id: "text",
+//                 content: `Count: ${state.getState().count}`
+//             },
+//             {
+//                 type: "button",
+//                 content: "Increment",
+//                 onclick: Increment
+//             },
+//             {
+//                 type: "button",
+//                 content: "Decrement",
+//                 onclick: Decrement
+//             },
+//             ListComponent(state.getState().count)
+//         ],
+//     };
+// }
+
+// // Contact
+// function Contact() {
+//     return {
+//         type: 'div',
+//         content: 'Contact Page',
+//     };
+// }
+
+// // Function to render based on route
+// function renderRoute(route) {
+//     const component = route.component();
+//     render(document.getElementById('root'), component);
+// }
+
+// // Function to navigate to a specific route
+// export function navigateTo(path) {
+//     const route = routes.find(route => route.path === path);
+//     if (route) {
+//         window.history.pushState({}, '', path);
+//         renderRoute(route);
+//     } else {
+//         console.error("Route not found:", path);
+//     }
+// }
+
+// // Function to handle popstate event
+// window.onpopstate = () => {
+//     const path = window.location.pathname;
+//     navigateTo(path);
+// };
+
+// // Initial render
+// const initialPath = window.location.pathname;
+// const initialRoute = routes.find(route => route.path === initialPath);
+// if (initialRoute) {
+//     renderRoute(initialRoute);
+// } else {
+//     console.error("Initial route not found:", initialPath);
+// }
+
+// app.js
+import { createState } from "./state.js";
+// import {ListComponent} from "./Component/ListComponent.js";
+
+// Create reactive state
+const initialState = {
+    count: 0,
+};
+const state = createState(initialState);
+
+// Define components
+const Increment = () => {
+    state.setState({ count: state.getState().count + 1 });
+    console.log(state.getState().count);
+};
+
+const Decrement = () => {
+    state.setState({ count: state.getState().count - 1 });
+    console.log(state.getState().count);
+};
+
 export function App() {
-    // Create reactive state
-    const state = createState({ count: 0 });
-
-    const IncreaseCount = () => {
-        // Update state on button click
-        const currentState = state.getState();
-        state.setState({ count: currentState.count + 1 });
-        console.log(state.getState().count);
-    };
-     // Subscribe to state changes
-     state.subscribe(() => {
-        // Call renderCount function to get updated count value and re-render the component
-        App();
-    });
-
     return {
-        type: 'div',
+        type: "div",
         content: [
-            // Use a function to dynamically render the count based on the state
             {
-                type: 'h1',
-                content: renderCount(state) // Render count dynamically
+                type: "p",
+                id: "text",
+                content: `Count: ${state.getState().count}`
             },
             {
-                type: 'button',
-                content: 'Increment',
-                onClick: IncreaseCount // Pass reference to the function without invoking
-            }
-        ]
+                type: "button",
+                content: "Increment",
+                onclick: Increment
+            },
+            {
+                type: "button",
+                content: "Decrement",
+                onclick: Decrement
+            },
+            ListComponent(state.getState().count)
+        ],
     };
-    
 }
-// App.js
 
+// Component/ListComponent.js
+// ListComponent.js
+// import { renderListItem  } from "./RenderCount.js";
+// Define a component for rendering a list
+export function ListComponent(num) {
+    // Function to render the list items
+    const renderListItems = () => {
+        const comp = [];
+        for(let i=0;i<num;i++){
+            comp.push(renderListItem());
+        }
+        return comp;
+    };
 
+    return {
+        type: 'ul',
+        content: renderListItems() // Render the list items dynamically
+    };
+}
 
+// RenderCount.js
 
-// // App.js
-
-// // import { ListComponent } from './Component/ListComponent.js';
-
-// // // Define a component for the list app
-// // export function App() {
-// //     // Sample list data
-// //     const items = ['Item 1', 'Item 2', 'Item 3','Item 4'];
-
-// //     return {
-// //         type: 'div',
-// //         content: [
-// //             {
-// //                 type: 'h1',
-// //                 content: 'List App'
-// //             },
-// //             ListComponent(items) // Use the ListComponent to render the list,
-// //         ]
-// //     };
-// // }
+// Define a component to render the count dynamically
+export function renderListItem() {
+    return {
+        type: 'li',
+        content: 'HELO' // Function to dynamically render the count
+    };
+}

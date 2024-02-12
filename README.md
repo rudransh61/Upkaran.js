@@ -11,69 +11,82 @@ The main code is in `App.js` file
 You can create HTML elements like js objects ...
 Example Code :
 ```javascript
-import { createState } from './Upkaran.js';
+// app.js
+import { createState } from "./state.js";
+import {ListComponent} from "./Component/ListComponent.js";
+
+// Create reactive state
+const initialState = {
+    count: 0,
+};
+const state = createState(initialState);
 
 // Define components
+const Increment = () => {
+    state.setState({ count: state.getState().count + 1 });
+    console.log(state.getState().count);
+};
+
+const Decrement = () => {
+    state.setState({ count: state.getState().count - 1 });
+    console.log(state.getState().count);
+};
+
 export function App() {
-    // Create reactive state for storing blog posts
-    const postState = createState({
-        posts: [
-            { id: 1, title: 'First Post', content: 'This is the content of the first post.' },
-            { id: 2, title: 'Second Post', content: 'This is the content of the second post.' },
-            { id: 3, title: 'Third Post', content: 'This is the content of the third post.' }
-        ]
-    });
-
-    // Function to render individual post items
-    const renderPost = (post) => ({
-        type: 'div',
-        content: [
-            { type: 'h2', content: post.title },
-            { type: 'p', content: post.content }
-        ]
-    });
-
-    // Header component
-    const Header = () => ({
-        type: 'header',
-        content: 'Blog Header'
-    });
-
-    // PostList component
-    const PostList = () => ({
-        type: 'div',
-        content: postState.getState().posts.map(post => renderPost(post))
-    });
-
-    // Sidebar component
-    const Sidebar = () => ({
-        type: 'aside',
-        content: 'Sidebar'
-    });
-
-    // Footer component
-    const Footer = () => ({
-        type: 'footer',
-        content: 'Blog Footer'
-    });
-
-    // Render the entire blog app
     return {
-        type: 'div',
+        type: "div",
         content: [
-            Header(),
             {
-                type: 'div',
-                content: [
-                    PostList(),
-                    Sidebar()
-                ]
+                type: "p",
+                id: "text",
+                content: `Count: ${state.getState().count}`
             },
-            Footer()
-        ]
+            {
+                type: "button",
+                content: "Increment",
+                onclick: Increment
+            },
+            {
+                type: "button",
+                content: "Decrement",
+                onclick: Decrement
+            },
+            ListComponent(state.getState().count)
+        ],
     };
 }
+
+// Component/ListComponent.js
+// ListComponent.js
+import { renderListItem  } from "./RenderCount.js";
+// Define a component for rendering a list
+export function ListComponent(num) {
+    // Function to render the list items
+    const renderListItems = () => {
+        const comp = [];
+        for(let i=0;i<num;i++){
+            comp.push(renderListItem());
+        }
+        return comp;
+    };
+
+    return {
+        type: 'ul',
+        content: renderListItems() // Render the list items dynamically
+    };
+}
+
+// RenderCount.js
+
+// Define a component to render the count dynamically
+export function renderListItem() {
+    return {
+        type: 'li',
+        content: 'HELO' // Function to dynamically render the count
+    };
+}
+
 ```
 
 Output is in `index.html` file of `public` folder...
-![img](img1.png)
+![gif_example](vid1.gif)

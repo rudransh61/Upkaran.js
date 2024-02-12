@@ -1,9 +1,9 @@
 // RenderCount.js
 
 // Define a component to render the count dynamically
-export function renderCount(state) {
+export function renderListItem() {
     return {
-        type: 'h3',
-        content: `Count: ${state.getState().count}` // Function to dynamically render the count
+        type: 'li',
+        content: 'HELO' // Function to dynamically render the count
     };
 }

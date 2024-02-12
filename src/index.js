@@ -9,4 +9,12 @@ const rootElement = document.getElementById('root');
 // Render the App component
 render(rootElement, App());
 
+//Repeat Render
+function RepeatRender (){
+    render(rootElement, App());
+}
+
+//Repeat it
+setInterval(RepeatRender, 1000);
+
  

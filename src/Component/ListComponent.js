@@ -1,16 +1,14 @@
 // ListComponent.js
-
+import { renderListItem  } from "./RenderCount.js";
 // Define a component for rendering a list
-export function ListComponent(items) {
+export function ListComponent(num) {
     // Function to render the list items
     const renderListItems = () => {
-        return items.map((item, index) => ({
-            type: 'li',
-            content: item,
-            attr: {
-                key: index // Assign a unique key to each list item
-            }
-        }));
+        const comp = [];
+        for(let i=0;i<num;i++){
+            comp.push(renderListItem());
+        }
+        return comp;
     };
 
     return {
