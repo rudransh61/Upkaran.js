@@ -1,62 +1,55 @@
-// Route.js
-import { render } from "./Upkaran.js";
+// router.js
+import { render } from './Upkaran.js';
+import { App } from './App.js';
+import { NotFound } from './404.js';
 
-// Define routes and corresponding components
-export const routes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
-    { path: '/contact', component: Contact },
-];
-
-// Define your components for each route
-function Home() {
-    return {
-        type: "div",
-        content: "Home Page",
-    };
-}
-
-function About() {
-    return {
-        type: "div",
-        content: "About Page",
-    };
-}
-
-function Contact() {
-    return {
-        type: "div",
-        content: "Contact Page",
-    };
-}
-
-// Function to render based on route
-export function renderRoute(route) {
-    const component = route.component();
-    render(document.getElementById('root'), component);
-}
-
-// Function to navigate to a specific route
-export function navigateTo(path) {
-    const route = routes.find(route => route.path === path);
-    if (route) {
-        window.history.pushState({}, '', path);
-        renderRoute(route);
-    } else {
-        console.error("Route not found:", path);
-    }
-}
-
-// Function to handle popstate event
-window.onpopstate = () => {
-    const path = window.location.pathname;
-    navigateTo(path);
+const routes = {
+    '/app': 'App',
+    '/about': 'About',
+    '/contact': 'Contact',
+    '404': '404', // Default route for 404 errors
 };
 
-// Initial render
-const initialRoute = routes.find(route => route.path === '/');
-if (initialRoute) {
-    renderRoute(initialRoute);
-} else {
-    console.error("Initial route not found: /");
+export function handleRouteChange() {
+    console.log('handleRouteChange working...');
+    const path = window.location.pathname;
+    const component = routes[path] || routes['404']; // Check if route exists, otherwise use 404 route
+    renderComponent(component);
+    // handleRouteChange();
+}
+
+function renderComponent(componentName) {
+    // Import components dynamically based on component name
+    import(`../src/${componentName}.js`)
+        .then(module => {
+            const {Component} = module; // idk
+            render(document.getElementById('root'), Component());
+            // handleRouteChange();
+        })
+        .catch(error => {
+            console.error('Error loading component:', error);
+            // If there's an error loading the component, render the NotFound component
+            render(document.getElementById('root'), NotFound());
+            // handleRouteChange();
+        });
+}
+
+window.onpopstate = handleRouteChange;
+
+
+// About.js
+export function About() {
+    return {
+        type: 'div',
+        content: 'About Page Content',
+    };
+}
+
+
+// Contact.js
+export function Contact() {
+    return {
+        type: 'div',
+        content: 'Contact Page Content',
+    };
 }

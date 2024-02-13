@@ -1,5 +1,9 @@
 # UPKARAN.js
- - A simple js frontend framework for <i>abhiyanta</i>(engineers)
+<div align="center">
+    <img src='./logo.png' width='200'>
+    <p> - A simple js frontend framework for <i>abhiyanta</i>(engineers)</p>
+    <hr>
+</div>
 
 Write your frontend like objects
 
