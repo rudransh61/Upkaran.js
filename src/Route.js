@@ -1,55 +1,38 @@
-// router.js
-import { render } from './Upkaran.js';
-import { App } from './App.js';
-import { NotFound } from './404.js';
+// Route.js
+import { createElement, render } from "./Upkaran.js"; // Import createElement and render from Upkaran.js
 
-const routes = {
-    '/app': 'App',
-    '/about': 'About',
-    '/contact': 'Contact',
-    '404': '404', // Default route for 404 errors
-};
+export function router(routes) {
+    const rootElement = document.getElementById('root');
 
-export function handleRouteChange() {
-    console.log('handleRouteChange working...');
-    const path = window.location.pathname;
-    const component = routes[path] || routes['404']; // Check if route exists, otherwise use 404 route
-    renderComponent(component);
-    // handleRouteChange();
-}
+    function navigateTo(path) {
+        if (routes[path]) {
+            rootElement.innerHTML = '';
+            const components = routes[path]();
+            const element = createElement(components);
+            render(element, rootElement);
+        } else {
+            console.error("Route not found:", path);
+        }
+    }
 
-function renderComponent(componentName) {
-    // Import components dynamically based on component name
-    import(`../src/${componentName}.js`)
-        .then(module => {
-            const {Component} = module; // idk
-            render(document.getElementById('root'), Component());
-            // handleRouteChange();
-        })
-        .catch(error => {
-            console.error('Error loading component:', error);
-            // If there's an error loading the component, render the NotFound component
-            render(document.getElementById('root'), NotFound());
-            // handleRouteChange();
-        });
-}
+    // Initial route based on the current URL
+    console.log("Initial Route:", window.location.hash.substring(1));
+    navigateTo(window.location.hash.substring(1));
 
-window.onpopstate = handleRouteChange;
+    // Event listener for hash changes
+    window.addEventListener('hashchange', () => {
+        const newHash = window.location.hash.substring(1);
+        console.log("Hash Changed:", newHash);
+        navigateTo(newHash);
+    });
 
+    // Function to refresh the current route
+    function refresh() {
+        navigateTo(window.location.hash.substring(1));
+    }
 
-// About.js
-export function About() {
     return {
-        type: 'div',
-        content: 'About Page Content',
-    };
-}
-
-
-// Contact.js
-export function Contact() {
-    return {
-        type: 'div',
-        content: 'Contact Page Content',
+        refresh,
+        element: rootElement,
     };
 }

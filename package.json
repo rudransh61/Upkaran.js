@@ -4,7 +4,9 @@
   "description": "A simple js frontend framework for abhiyanta(engineers)",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel ./public/index.html",
+    "build": "parcel build ./src/index.js"
   },
   "keywords": [
     "ui",
@@ -12,5 +14,8 @@
   ],
   "author": "Rudransh Bhardwaj",
   "license": "ISC",
-  "type":"module"
+  "type": "module",
+  "dependencies": {
+    "parcel": "^2.11.0"
+  }
 }

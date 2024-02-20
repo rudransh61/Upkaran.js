@@ -66,3 +66,47 @@ export function render(rootElement, component) {
         component.state.subscribe(update);
     }
 }
+
+
+export function createElement(component) {
+    const newElement = document.createElement(component.type);
+
+    // Set attributes
+    if (component.attr) {
+        for (const attr in component.attr) {
+            newElement.setAttribute(attr, component.attr[attr]);
+        }
+    }
+
+    // Set content
+    if (component.content) {
+        if (typeof component.content === 'string') {
+            newElement.textContent = component.content;
+        } else if (typeof component.content === 'function') {
+            // Pass state to content function and render its result
+            render(newElement, component.content());
+        } else {
+            // Render nested components
+            render(newElement, component.content);
+        }
+    }
+
+    // Set other properties
+    if ((component.onClick && typeof component.onClick === 'function') || (component.onclick && typeof component.onclick === 'function')) {
+        if (component.onClick) {
+            newElement.addEventListener('click', component.onClick);
+        } else {
+            newElement.addEventListener('click', component.onclick);
+        }
+    }
+
+    // Set className and id attributes
+    if (component.className && typeof component.className === 'string') {
+        newElement.className = component.className;
+    }
+    if (component.id && typeof component.id === 'string') {
+        newElement.id = component.id;
+    }
+
+    return newElement;
+}
