@@ -6,12 +6,13 @@
 </div>
 
 Write your frontend like objects
-
  ## Why a new framework 
  - becz i want to mke it
 Want to know the making of this framework [article_link](https://rudransh61.hashnode.dev/thoughts-how-i-created-a-js-framework-in-just-4-days)
 # How to use it? 
 The main code is in `App.js` file
+
+[Docs](./docs.md)
 You can create HTML elements like js objects ...
 Example Code :
 ```javascript

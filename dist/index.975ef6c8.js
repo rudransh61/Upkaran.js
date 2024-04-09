@@ -587,19 +587,29 @@ var _routeJs = require("./Route.js"); // Import the route handling function
 const rootElement = document.getElementById("root");
 // Initial rendering
 (0, _upkaranJs.render)(rootElement, (0, _appJs.App)());
-// Listen for route changes
-// window.addEventListener('popstate', handleRouteChange);
-//Repeat Render
-function RepeatRender() {
-    (0, _upkaranJs.render)(rootElement, (0, _appJs.App)());
-// handleRouteChange();
-}
-//Repeat it
-setInterval(RepeatRender, 300);
 // Example router initialization
-const r = (0, _routeJs.router)((0, _appJs.routes));
+const r = (0, _routeJs.router)(routes);
 // Append router element to entry
 document.body.appendChild(r.element);
+// Listen for route changes and refresh only when there's a change
+function handleHashChange() {
+    const newHash = window.location.hash.substring(1);
+    console.log("Hash Changed:", newHash);
+    r.refresh();
+}
+// Initial route based on the current URL
+console.log("Initial Route:", window.location.hash.substring(1));
+r.refresh();
+// Event listener for hash changes
+window.addEventListener("hashchange", handleHashChange);
+// Set up an interval to check for changes
+// setInterval(handleHashChange, 300);
+//update the dom
+function RenderRepeat() {
+    (0, _upkaranJs.render)(rootElement, (0, _appJs.App)());
+    handleHashChange();
+}
+setInterval(RenderRepeat, 300);
 
 },{"./Upkaran.js":"feRlQ","./App.js":"2kQhy","./Route.js":"AybEJ"}],"feRlQ":[function(require,module,exports) {
 // Upkaran.js
@@ -608,6 +618,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 // Render function with reactive state management
 parcelHelpers.export(exports, "render", ()=>render);
+parcelHelpers.export(exports, "createElement", ()=>createElement);
 var _stateJs = require("../src/state.js");
 var _routeJs = require("../src/Route.js");
 function render(rootElement, component) {
@@ -647,6 +658,28 @@ function render(rootElement, component) {
     update();
     // Subscribe to state changes and re-render
     if (component.state) component.state.subscribe(update);
+}
+function createElement(component) {
+    const newElement = document.createElement(component.type);
+    // Set attributes
+    if (component.attr) for(const attr in component.attr)newElement.setAttribute(attr, component.attr[attr]);
+    // Set content
+    if (component.content) {
+        if (typeof component.content === "string") newElement.textContent = component.content;
+        else if (typeof component.content === "function") // Pass state to content function and render its result
+        render(newElement, component.content());
+        else // Render nested components
+        render(newElement, component.content);
+    }
+    // Set other properties
+    if (component.onClick && typeof component.onClick === "function" || component.onclick && typeof component.onclick === "function") {
+        if (component.onClick) newElement.addEventListener("click", component.onClick);
+        else newElement.addEventListener("click", component.onclick);
+    }
+    // Set className and id attributes
+    if (component.className && typeof component.className === "string") newElement.className = component.className;
+    if (component.id && typeof component.id === "string") newElement.id = component.id;
+    return newElement;
 }
 
 },{"../src/state.js":"j3t7q","../src/Route.js":"AybEJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j3t7q":[function(require,module,exports) {
@@ -719,10 +752,9 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 // Define your main App component
 parcelHelpers.export(exports, "App", ()=>App);
-parcelHelpers.export(exports, "routes", ()=>routes);
 var _stateJs = require("./state.js");
 var _routeJs = require("./Route.js");
-var _listComponent = require("./Component/ListComponent");
+var _listComponentJs = require("./Component/ListComponent.js");
 // Create reactive state
 const initialState = {
     count: 0
@@ -763,17 +795,8 @@ function App() {
         ]
     };
 }
-const routes = {
-    "/list": ()=>(0, _listComponent.ListComponent)(state.getState().count)
-};
-// Initialize the router
-const appRouter = (0, _routeJs.router)(routes);
-// Append router element to the body
-document.body.appendChild(appRouter.element);
-// Set up an interval to check for changes
-setInterval(appRouter.refresh, 300);
 
-},{"./state.js":"j3t7q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Route.js":"AybEJ","./Component/ListComponent":"mUc1k"}],"mUc1k":[function(require,module,exports) {
+},{"./state.js":"j3t7q","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Route.js":"AybEJ","./Component/ListComponent.js":"mUc1k"}],"mUc1k":[function(require,module,exports) {
 // ListComponent.js
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);

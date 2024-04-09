@@ -579,29 +579,40 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"AybEJ":[function(require,module,exports) {
-function createElement(component) {
-    const newElement = document.createElement(component.type);
-    // Set attributes
-    if (component.attr) for(const attr in component.attr)newElement.setAttribute(attr, component.attr[attr]);
-    // Set content
-    if (component.content) {
-        if (typeof component.content === "string") newElement.textContent = component.content;
-        else if (typeof component.content === "function") // Pass state to content function and render its result
-        render(newElement, component.content());
-        else // Render nested components
-        render(newElement, component.content);
+// Route.js
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "router", ()=>router);
+var _upkaranJs = require("./Upkaran.js"); // Import createElement and render from Upkaran.js
+function router(routes) {
+    const rootElement = document.getElementById("root");
+    function navigateTo(path) {
+        if (routes[path]) {
+            rootElement.innerHTML = "";
+            const components = routes[path]();
+            const element = (0, _upkaranJs.createElement)(components);
+            (0, _upkaranJs.render)(element, rootElement);
+        } else console.error("Route not found:", path);
     }
-    // Set other properties
-    if (component.onClick && typeof component.onClick === "function" || component.onclick && typeof component.onclick === "function") {
-        if (component.onClick) newElement.addEventListener("click", component.onClick);
-        else newElement.addEventListener("click", component.onclick);
+    // Initial route based on the current URL
+    console.log("Initial Route:", window.location.hash.substring(1));
+    navigateTo(window.location.hash.substring(1));
+    // Event listener for hash changes
+    window.addEventListener("hashchange", ()=>{
+        const newHash = window.location.hash.substring(1);
+        console.log("Hash Changed:", newHash);
+        navigateTo(newHash);
+    });
+    // Function to refresh the current route
+    function refresh() {
+        navigateTo(window.location.hash.substring(1));
     }
-    // Set className and id attributes
-    if (component.className && typeof component.className === "string") newElement.className = component.className;
-    if (component.id && typeof component.id === "string") newElement.id = component.id;
-    return newElement;
+    return {
+        refresh,
+        element: rootElement
+    };
 }
 
-},{}]},["56WDc","AybEJ"], "AybEJ", "parcelRequirec289")
+},{"./Upkaran.js":"feRlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["56WDc","AybEJ"], "AybEJ", "parcelRequirec289")
 
 //# sourceMappingURL=index.f46f3454.js.map

@@ -32,7 +32,7 @@
 98C:\Users\hp\Desktop\code\UPKARANjs\node_modules\csso\node_modules\css-tree\cjs\tokenizer\types.cjs133527257342528077 0
 79C:\Users\hp\Desktop\code\UPKARANjs\node_modules\caniuse-lite\data\regions\IT.js133527257740375825 0
 91C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\workers\lib\threads\ThreadsChild.js133527257091002631 0
-39C:\Users\hp\Desktop\code\UPKARANjs\dist133529076875353291 1
+39C:\Users\hp\Desktop\code\UPKARANjs\dist133571108615775102 1
 109C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\lib\css-tools.js133527257035883183 0
 64C:\Users\hp\Desktop\code\UPKARANjs\node_modules\term-size\vendor133527256945166469 1
 73C:\Users\hp\Desktop\code\UPKARANjs\node_modules\cli-progress\package.json133527256948916748 0
@@ -97,7 +97,7 @@
 94C:\Users\hp\Desktop\code\UPKARANjs\node_modules\svgo\plugins\removeNonInheritableGroupAttrs.js133527257207091362 0
 87C:\Users\hp\Desktop\code\UPKARANjs\node_modules\caniuse-lite\data\features\png-alpha.js133527257768032963 0
 60C:\Users\hp\Desktop\code\UPKARANjs\node_modules\caniuse-lite133527257832017696 1
-44C:\Users\hp\Desktop\code\UPKARANjs\README.md133522993596321172 0
+44C:\Users\hp\Desktop\code\UPKARANjs\README.md133529085198712995 0
 52C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@swc133527257848038877 1
 98C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\runtime-js\src\helpers\node\html-loader.js133527257084212110 0
 74C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\transformer-js\src133527257017931852 1
@@ -132,7 +132,7 @@
 79C:\Users\hp\Desktop\code\UPKARANjs\node_modules\caniuse-lite\data\regions\UG.js133527257812456251 0
 43C:\Users\hp\Desktop\code\UPKARANjs\vid1.mp4133522291657199068 0
 96C:\Users\hp\Desktop\code\UPKARANjs\node_modules\csso\node_modules\css-tree\cjs\definition-syntax133527257355689052 1
-45C:\Users\hp\Desktop\code\UPKARANjs\src\App.js133529076872911601 0
+45C:\Users\hp\Desktop\code\UPKARANjs\src\App.js133529084589428008 0
 77C:\Users\hp\Desktop\code\UPKARANjs\node_modules\lmdb\dependencies\lz4\LICENSE133527257012601457 0
 81C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\core\test\fixtures\parcel133527257518914416 1
 103C:\Users\hp\Desktop\code\UPKARANjs\node_modules\lmdb\dependencies\lmdb-data-v1\libraries\liblmdb\midl.h133527257311244144 0
@@ -163,7 +163,7 @@
 66C:\Users\hp\Desktop\code\UPKARANjs\node_modules\mdn-data\README.md133527257056144684 0
 53C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@lmdb133527257848008886 1
 82C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\workers\src\core-worker.js133527257037823330 0
-47C:\Users\hp\Desktop\code\UPKARANjs\src\index.js133527273938226905 0
+47C:\Users\hp\Desktop\code\UPKARANjs\src\index.js133571108609243379 0
 86C:\Users\hp\Desktop\code\UPKARANjs\node_modules\caniuse-lite\data\features\css-sel2.js133527257507563592 0
 100C:\Users\hp\Desktop\code\UPKARANjs\node_modules\csso\node_modules\css-tree\lib\syntax\atrule\page.js133527257518274373 0
 83C:\Users\hp\Desktop\code\UPKARANjs\node_modules\svgo\plugins\cleanupListOfValues.js133527257089962555 0
@@ -171,7 +171,7 @@
 77C:\Users\hp\Desktop\code\UPKARANjs\node_modules\caniuse-lite\data\features.js133527257656659653 0
 70C:\Users\hp\Desktop\code\UPKARANjs\node_modules\mdn-data\l10n\css.json133527256962167731 0
 87C:\Users\hp\Desktop\code\UPKARANjs\node_modules\csso\node_modules\mdn-data\css\index.js133527257055094607 0
-47C:\Users\hp\Desktop\code\UPKARANjs\src\Route.js133529075386533924 0
+47C:\Users\hp\Desktop\code\UPKARANjs\src\Route.js133529084673322289 0
 73C:\Users\hp\Desktop\code\UPKARANjs\node_modules\css-tree\lib\utils\url.js133527257576083701 0
 122C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\optimizer-htmlnano\node_modules\mdn-data\css\selectors.schema.json133527257020672062 0
 65C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@msgpackr-extract133527257848028883 1
@@ -208,7 +208,7 @@
 76C:\Users\hp\Desktop\code\UPKARANjs\node_modules\posthtml-render\changelog.md133527256947446653 0
 117C:\Users\hp\Desktop\code\UPKARANjs\node_modules\msgpackr-extract\node_modules\node-gyp-build-optional-packages\bin.js133527257053774504 0
 101C:\Users\hp\Desktop\code\UPKARANjs\node_modules\csso\node_modules\css-tree\lib\lexer\generic-const.js133527257464905217 0
-49C:\Users\hp\Desktop\code\UPKARANjs\src\Upkaran.js133522284829088123 0
+49C:\Users\hp\Desktop\code\UPKARANjs\src\Upkaran.js133529082615774713 0
 77C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\workers\src\Handle.js133527257057704800 0
 108C:\Users\hp\Desktop\code\UPKARANjs\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\060-contribute.md133527257216692088 0
 77C:\Users\hp\Desktop\code\UPKARANjs\node_modules\update-browserslist-db\cli.js133527256936305820 0
@@ -794,7 +794,7 @@
 92C:\Users\hp\Desktop\code\UPKARANjs\node_modules\utility-types\dist\functional-helpers.js.map133527256961897718 0
 92C:\Users\hp\Desktop\code\UPKARANjs\node_modules\node-gyp-build-optional-packages\optional.js133527256948496727 0
 66C:\Users\hp\Desktop\code\UPKARANjs\node_modules\color-name\LICENSE133527256936295816 0
-57C:\Users\hp\Desktop\code\UPKARANjs\dist\index.975ef6c8.js133529076874703252 0
+57C:\Users\hp\Desktop\code\UPKARANjs\dist\index.975ef6c8.js133571108615568119 0
 90C:\Users\hp\Desktop\code\UPKARANjs\node_modules\utility-types\dist\functional-helpers.d.ts133527257008051124 0
 95C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\transformer-json\lib\JSONTransformer.js133527257007711099 0
 61C:\Users\hp\Desktop\code\UPKARANjs\node_modules\msgpackr\dist133527257153687254 1
@@ -1990,7 +1990,7 @@
 79C:\Users\hp\Desktop\code\UPKARANjs\node_modules\caniuse-lite\data\regions\OM.js133527257764832731 0
 106C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\core\test\fixtures\library-scopehoist\package.json133527257508643690 0
 61C:\Users\hp\Desktop\code\UPKARANjs\node_modules\mdn-data\l10n133527256951726960 1
-61C:\Users\hp\Desktop\code\UPKARANjs\dist\index.f46f3454.js.map133529076875093277 0
+61C:\Users\hp\Desktop\code\UPKARANjs\dist\index.f46f3454.js.map133571108614385220 0
 81C:\Users\hp\Desktop\code\UPKARANjs\node_modules\mdn-data\css\at-rules.schema.json133527256950766897 0
 76C:\Users\hp\Desktop\code\UPKARANjs\node_modules\mdn-data\css\properties.json133527257009881259 0
 75C:\Users\hp\Desktop\code\UPKARANjs\node_modules\css-tree\lib\lexer\trace.js133527257533405498 0
@@ -2681,12 +2681,12 @@
 65C:\Users\hp\Desktop\code\UPKARANjs\node_modules\entities\lib\maps133527256981609170 1
 120C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\node\Brackets.js133527256963747845 0
 77C:\Users\hp\Desktop\code\UPKARANjs\node_modules\entities\lib\maps\legacy.json133527256968488202 0
-58C:\Users\hp\Desktop\code\UPKARANjs\dist\index.a0bde794.css133529076874433251 0
+58C:\Users\hp\Desktop\code\UPKARANjs\dist\index.a0bde794.css133571108614235204 0
 92C:\Users\hp\Desktop\code\UPKARANjs\node_modules\caniuse-lite\data\features\serviceworkers.js133527257799235273 0
 74C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@lezer\common\package.json133527257007441088 0
 92C:\Users\hp\Desktop\code\UPKARANjs\node_modules\entities\lib\generated\decode-data-html.d.ts133527257023392260 0
 96C:\Users\hp\Desktop\code\UPKARANjs\node_modules\entities\lib\generated\decode-data-html.d.ts.map133527256989469770 0
-62C:\Users\hp\Desktop\code\UPKARANjs\dist\index.a0bde794.css.map133529076875103285 0
+62C:\Users\hp\Desktop\code\UPKARANjs\dist\index.a0bde794.css.map133571108614385220 0
 92C:\Users\hp\Desktop\code\UPKARANjs\node_modules\csso\node_modules\css-tree\lib\data-patch.js133527257434163956 0
 92C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\transformer-html\lib\dependencies.js133527257012611458 0
 95C:\Users\hp\Desktop\code\UPKARANjs\node_modules\entities\lib\generated\decode-data-xml.d.ts.map133527256995780215 0
@@ -3083,7 +3083,7 @@
 85C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@swc\helpers\_\_await_async_generator133527257483535034 1
 90C:\Users\hp\Desktop\code\UPKARANjs\node_modules\css-tree\lib\syntax\node\index-generate.js133527257445989026 0
 91C:\Users\hp\Desktop\code\UPKARANjs\node_modules\csso\node_modules\css-tree\cjs\syntax\scope133527257353098851 1
-57C:\Users\hp\Desktop\code\UPKARANjs\dist\index.f46f3454.js133529076874423223 0
+57C:\Users\hp\Desktop\code\UPKARANjs\dist\index.f46f3454.js133571108614295204 0
 98C:\Users\hp\Desktop\code\UPKARANjs\node_modules\csso\node_modules\css-tree\cjs\lexer\structure.cjs133527257331077228 0
 94C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@swc\helpers\_\_non_iterable_rest\package.json133527257597225259 0
 77C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\markdown-ansi\LICENSE133527256946126544 0
@@ -3475,7 +3475,7 @@
 98C:\Users\hp\Desktop\code\UPKARANjs\node_modules\css-select\node_modules\entities\lib\escape.js.map133527257202661045 0
 81C:\Users\hp\Desktop\code\UPKARANjs\node_modules\css-select\lib\esm\index.d.ts.map133527257090012548 0
 88C:\Users\hp\Desktop\code\UPKARANjs\node_modules\css-select\node_modules\entities\lib\esm133527257240168889 1
-50C:\Users\hp\Desktop\code\UPKARANjs\dist\index.html133529076874693246 0
+50C:\Users\hp\Desktop\code\UPKARANjs\dist\index.html133571108615765106 0
 95C:\Users\hp\Desktop\code\UPKARANjs\node_modules\css-select\node_modules\entities\lib\index.d.ts133527257242799091 0
 102C:\Users\hp\Desktop\code\UPKARANjs\node_modules\@parcel\core\test\fixtures\targets-default-distdir-two133527257517834354 1
 99C:\Users\hp\Desktop\code\UPKARANjs\node_modules\css-select\node_modules\entities\lib\index.d.ts.map133527257213611843 0
@@ -5955,4 +5955,4 @@
 61C:\Users\hp\Desktop\code\UPKARANjs\node_modules\.bin\svgo.cmd133527257833087779 0
 61C:\Users\hp\Desktop\code\UPKARANjs\node_modules\.bin\svgo.ps1133527257833087779 0
 79C:\Users\hp\Desktop\code\UPKARANjs\node_modules\.bin\update-browserslist-db.ps1133527257833887832 0
-61C:\Users\hp\Desktop\code\UPKARANjs\dist\index.975ef6c8.js.map133529076875183287 0
+61C:\Users\hp\Desktop\code\UPKARANjs\dist\index.975ef6c8.js.map133571108615618150 0

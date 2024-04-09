@@ -1,7 +1,7 @@
 // Upkaran.js
 // import { App } from "./App.js";
-import { createState } from "../src/state.js";
-import * as Route from "../src/Route.js";
+// import { createState } from "../src/state.js";
+// import * as Route from "../src/Route.js";
 
 // Render function with reactive state management
 export function render(rootElement, component) {
@@ -36,21 +36,35 @@ export function render(rootElement, component) {
             }
 
             // Set other properties
-            if ((component.onClick && typeof component.onClick === 'function') ||(component.onclick && typeof component.onclick === 'function')) {
-                if(component.onClick){
+            if ((component.onClick && typeof component.onClick === 'function') || (component.onclick && typeof component.onclick === 'function')) {
+                if (component.onClick) {
                     newElement.addEventListener('click', component.onClick);
                 }
-                else{
+                else {
                     newElement.addEventListener('click', component.onclick);
                 }
             }
 
             //Set className and id attributes
-            if(component.className && typeof component.className === 'string'){
+            if (component.className && typeof component.className === 'string') {
                 newElement.className = component.className
             }
-            if(component.id && typeof component.id === 'string'){
+            if (component.id && typeof component.id === 'string') {
                 newElement.id = component.id
+            }
+
+            // Styles of DOM objects
+            if (component.style) {
+                // console.log("Style");
+                // console.log("Component style:", component.style); // Log the component style for debugging
+                // Loop through each style property in component.style
+                for (const property in component.style) {
+                    // Check if the property exists in the style object
+                    if (component.style.hasOwnProperty(property)) {
+                        // Apply the style to the newElement
+                        newElement.style[property] = component.style[property];
+                    }
+                }
             }
 
             // Append new element to root element
@@ -107,6 +121,10 @@ export function createElement(component) {
     if (component.id && typeof component.id === 'string') {
         newElement.id = component.id;
     }
+
+
+
+
 
     return newElement;
 }

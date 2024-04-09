@@ -1,3 +1,5 @@
+import {handleStateChange} from './index.js';
+
 // Define a reactive state
 export function createState(initialState) {
     let state = initialState;
@@ -9,9 +11,12 @@ export function createState(initialState) {
 
     function setState(newState) {
         state = { ...state, ...newState };
+        // Subscribe to state changes
+        this.subscribe(handleStateChange);
         // Notify all listeners
         listeners.forEach(listener => listener(state));
         // render(document.getElementById('root'),App())
+
     }
 
     function subscribe(listener) {

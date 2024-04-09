@@ -1,6 +1,6 @@
 // App.js
 import { createState } from "./state.js";
-import { router } from "./Route.js";
+// import { router } from "./Route.js";
 import { ListComponent } from "./Component/ListComponent.js";
 // Create reactive state
 const initialState = {
@@ -28,6 +28,11 @@ export function App() {
                 type: "p",
                 id: "text",
                 content: `Count: ${state.getState().count}`,
+                style: {
+                    color: "red",
+                    fontSize: `${state.getState().count * 10}px`,
+                    backgroundColor: "lightblue",
+                },
             },
             {
                 type: "button",
@@ -39,6 +44,8 @@ export function App() {
                 content: "Decrement",
                 onclick: Decrement,
             },
+            ListComponent(state.getState().count)
+
         ],
     };
 }
