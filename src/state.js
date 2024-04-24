@@ -29,3 +29,25 @@ export function createState(initialState) {
 
     return { getState, setState, subscribe };
 }
+
+// Custom useEffect function
+export function useEffect(callback, dependencies, state) {
+    const deps = dependencies || [];
+    const prevState = state.getState();
+
+    // Check if any dependency has changed
+    const hasChanged = deps.some(dep => prevState[dep] !== state.getState()[dep]);
+
+    if (hasChanged) {
+        // Call the callback function
+        callback();
+    }
+}
+
+export function useInterval(callback, delay) {
+    useEffect(() => {
+        const intervalId = setInterval(callback, delay);
+
+        return () => clearInterval(intervalId);
+    }, []);
+}
