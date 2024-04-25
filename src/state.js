@@ -30,19 +30,19 @@ export function createState(initialState) {
     return { getState, setState, subscribe };
 }
 
-// Custom useEffect function
 export function useEffect(callback, dependencies, state) {
     const deps = dependencies || [];
     const prevState = state.getState();
 
-    // Check if any dependency has changed
+    // Check if any dependency has changed, or if it's the initial render
     const hasChanged = deps.some(dep => prevState[dep] !== state.getState()[dep]);
 
-    if (hasChanged) {
-        // Call the callback function
+    // Call the callback function after the initial render or if any dependency has changed
+    if (hasChanged || deps.length === 0) {
         callback();
     }
 }
+
 
 export function useInterval(callback, delay) {
     useEffect(() => {
